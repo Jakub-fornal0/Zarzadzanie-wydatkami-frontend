@@ -11,7 +11,7 @@
 .navbar {
   width: 98vw;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,5 +46,76 @@
 }
 
 .logout_btn:hover {
+  background-color: #c6c6c6;
+}
+
+.main {
+  width: 98vw;
+  height: 85vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.money_and_add_expenses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.test {
+  background-color: blueviolet;
+}
+
+.money_main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.money_info {
+  color: #fff;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.amount {
+  color: #fff;
+  font-size: 20px;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.add_money {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  outline: none;
+  border: none;
+  width: 15 vw;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.add_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 20px;
+  width: 120px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: 1s ease-in-out;
+}
+
+.add_btn:hover {
   background-color: #c6c6c6;
 }

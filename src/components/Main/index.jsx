@@ -1,13 +1,11 @@
 import styles from "./styles.module.css";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaUser } from "react-icons/fa";
+import Money from "./Money";
 
 const Main = () => {
-  const navigate = useNavigate();
   const [error, setError] = useState("");
-  const [userName, setUserName] = useState("");
+  const [user, setUser] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -29,7 +27,7 @@ const Main = () => {
           };
           //wysłanie żądania o dane:
           const { data: res } = await axios(config);
-          setUserName(res.data);
+          setUser(res.data);
         } catch (error) {
           if (
             error.response &&
@@ -48,15 +46,23 @@ const Main = () => {
 
   return (
     <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <h1>Zarządzanie wydatkami</h1>
-        <p>
-          Jesteś zalogowany jako: {userName.firstName} {userName.lastName}
-        </p>
-        <button className={styles.logout_btn} onClick={handleLogout}>
-          Wyloguj się
-        </button>
-      </nav>
+      <div>
+        <nav className={styles.navbar}>
+          <h1>Zarządzanie wydatkami</h1>
+          <p>
+            Jesteś zalogowany jako: {user.firstName} {user.lastName}
+          </p>
+          <button className={styles.logout_btn} onClick={handleLogout}>
+            Wyloguj się
+          </button>
+        </nav>
+        <div className={styles.main}>
+          <div className={styles.money_and_add_expenses}>
+            <Money></Money>
+            <div className={styles.test}></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
