@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 import styles from "./styles.module.css";
 
 const Login = () => {
@@ -27,12 +28,13 @@ const Login = () => {
       }
     }
   };
+
   return (
     <div className={styles.login_container}>
       <div className={styles.login_form_container}>
         <div className={styles.left}>
           <form className={styles.form_container} onSubmit={handleSubmit}>
-            <h1>Logowanie</h1>
+            <h1>Zaloguj się</h1>
             <input
               type="email"
               placeholder="Email"
@@ -52,16 +54,24 @@ const Login = () => {
               className={styles.input}
             />
             {error && <div className={styles.error_msg}>{error}</div>}
-            <button type="submit" className={styles.green_btn}>
+            <button type="submit" className={styles.login_btn}>
               Zaloguj się
             </button>
           </form>
         </div>
         <div className={styles.right}>
-          <h1>New Here ?</h1>
+          <h1>Kontroluj swoje wydatki</h1>
+          <p>
+            Dodaj kiedy i ile wydałeś, wybierz kategorię oraz odpcjonalnie dodaj
+            opis. Strona będzie konrolowała twój budżet. Dodatkowo możesz
+            sprawdzić statystyki dotyczące danej kategorii lub wydatków w
+            wybranym okresie.
+          </p>
+
+          <h2>Nie masz konta? Zarejestruj się!</h2>
           <Link to="/signup">
-            <button type="button" className={styles.white_btn}>
-              Sing Up
+            <button type="button" className={styles.register_btn}>
+              Rejestracja
             </button>
           </Link>
         </div>
