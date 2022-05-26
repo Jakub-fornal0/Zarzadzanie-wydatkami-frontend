@@ -1,10 +1,22 @@
+.main_container {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(assets/background.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar {
-  width: 100%;
+  width: 98vw;
   height: 70px;
-  background-color: #3bb19b;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .navbar h1 {
@@ -13,7 +25,13 @@
   margin-left: 20px;
 }
 
-.white_btn {
+.navbar p {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.logout_btn {
   border: none;
   outline: none;
   padding: 12px 0;
@@ -24,4 +42,9 @@
   font-size: 14px;
   cursor: pointer;
   margin-right: 20px;
+  transition: 1s ease-in-out;
+}
+
+.logout_btn:hover {
+  background-color: #c6c6c6;
 }
