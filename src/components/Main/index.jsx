@@ -58,7 +58,7 @@ const Main = () => {
         </nav>
         <div className={styles.main}>
           <div className={styles.money_and_add_expenses}>
-            <Money></Money>
+            <Money money={user.money}></Money>
             <div className={styles.test}></div>
           </div>
         </div>
