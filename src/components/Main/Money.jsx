@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 
@@ -10,13 +10,13 @@ const Money = (props) => {
   const handleChange = ({ currentTarget: input }) => {
     setAddMoney({
       ...addMoney,
-      [input.name]: parseFloat(input.value) + parseFloat(money),
+      [input.name]: input.value,
     });
   };
 
   const handleUpdateMoney = async (e) => {
     e.preventDefault();
-    console.log({ addMoney });
+    setAddMoney({ money: "" });
     try {
       const token = localStorage.getItem("token");
       const headers = {
@@ -27,7 +27,6 @@ const Money = (props) => {
       const { message: res } = await axios.post(url, addMoney, {
         headers: headers,
       });
-      console.log("tu");
       console.log(res.message);
     } catch (error) {
       if (
@@ -51,15 +50,16 @@ const Money = (props) => {
         <input
           type="number"
           step="0.01"
-          placeholder="Wprowadz ilość"
+          min="0"
+          placeholder="Wprowadz nową wartość"
           name="money"
           onChange={handleChange}
           value={addMoney.money}
           required
           className={styles.input}
         />
-        <button className={styles.add_btn} onClick={handleUpdateMoney}>
-          Dodaj
+        <button className={styles.add_money_btn} onClick={handleUpdateMoney}>
+          Zmień
         </button>
       </div>
     </div>

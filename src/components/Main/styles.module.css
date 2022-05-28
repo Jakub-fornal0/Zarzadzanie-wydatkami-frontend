@@ -62,17 +62,15 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.test {
-  background-color: blueviolet;
-}
-
-.money_main_container {
+.money_main_container,
+.expense_main_container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.money_info {
+.money_info,
+.expense_info {
   color: #fff;
   font-size: 20px;
   padding-right: 20px;
@@ -85,7 +83,9 @@
   font-weight: bold;
 }
 
-.add_money {
+.add_money,
+.add_expense,
+.add_expense_input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +102,7 @@
   font-size: 14px;
 }
 
-.add_btn {
+.add_money_btn {
   border: none;
   outline: none;
   padding: 12px 0;
@@ -116,6 +116,27 @@
   transition: 1s ease-in-out;
 }
 
-.add_btn:hover {
+.add_money_btn:hover {
   background-color: #c6c6c6;
+}
+.add_expense_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 20px;
+  width: 120px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+.add_expense_btn:hover {
+  background-color: #c6c6c6;
+}
+
+.add_expense_input input {
+  margin: 5px;
+  margin-bottom: 10px;
 }
