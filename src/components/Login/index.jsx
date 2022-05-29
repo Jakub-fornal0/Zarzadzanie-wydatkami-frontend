@@ -13,8 +13,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
       const url = "http://localhost:8080/api/auth";
-      const { data: res } = await axios.post(url, data);
+      const { data: res } = await axios.post(url, data, {
+        headers: headers,
+      });
       localStorage.setItem("token", res.data);
       window.location = "/";
     } catch (error) {

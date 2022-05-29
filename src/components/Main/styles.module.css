@@ -102,6 +102,17 @@
   font-size: 14px;
 }
 
+.input_select {
+  outline: none;
+  border: none;
+  width: 15 vw;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 5px 5px 10px;
+  font-size: 14px;
+}
+
 .add_money_btn {
   border: none;
   outline: none;
