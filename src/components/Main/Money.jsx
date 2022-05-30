@@ -40,7 +40,7 @@ const Money = (props) => {
   };
 
   return (
-    <div>
+    <div className="money">
       <div className={styles.money_main_container}>
         <p className={styles.money_info}>Dostępne środki: </p>
         <p className={styles.amount}>{money}</p>

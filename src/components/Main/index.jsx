@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Money from "./Money";
 import AddExpense from "./AddExpense";
+import Expenses from "./Expenses";
 
 const Main = () => {
   const [error, setError] = useState("");
@@ -61,6 +62,9 @@ const Main = () => {
           <div className={styles.money_and_add_expenses}>
             <Money money={user.money}></Money>
             <AddExpense></AddExpense>
+          </div>
+          <div className={styles.display_expenses}>
+            <Expenses></Expenses>
           </div>
         </div>
       </div>

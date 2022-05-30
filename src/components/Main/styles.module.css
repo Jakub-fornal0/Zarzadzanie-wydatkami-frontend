@@ -1,5 +1,4 @@
 .main_container {
-  width: 100vw;
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url(assets/background.jpg);
@@ -9,7 +8,7 @@
 }
 
 .navbar {
-  width: 98vw;
+  width: 96vw;
   height: 70px;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
@@ -50,27 +49,39 @@
 }
 
 .main {
-  width: 98vw;
-  height: 85vh;
+  width: 96vw;
+  height: 85%;
   background-color: rgba(0, 0, 0, 0.4);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
+.money {
+  grid-area: money;
+}
+
+.addExp {
+  grid-area: addExp;
+}
+
 .money_and_add_expenses {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "money addExp";
+  gap: 15px;
+  /*grid-template-columns: repeat(2, 1fr);*/
 }
 
 .money_main_container,
-.expense_main_container {
+.expense_main_container,
+.display_expenses_main_container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .money_info,
-.expense_info {
+.expense_info,
+.display_expenses_info {
   color: #fff;
   font-size: 20px;
   padding-right: 20px;
@@ -94,7 +105,7 @@
 .input {
   outline: none;
   border: none;
-  width: 15 vw;
+  width: 12vw;
   padding: 15px;
   border-radius: 10px;
   background-color: #edf5f3;
@@ -105,7 +116,7 @@
 .input_select {
   outline: none;
   border: none;
-  width: 15 vw;
+  width: 12vw;
   padding: 15px;
   border-radius: 10px;
   background-color: #edf5f3;
@@ -150,4 +161,45 @@
 .add_expense_input input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.display_expenses {
+  display: grid;
+  /*grid-template-columns: repeat(2, 1fr);*/
+}
+
+.display_expenses_main_container {
+  margin-top: 20px;
+}
+.display_expenses_table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display_expenses_table th,
+td {
+  padding: 15px;
+}
+
+.display_expenses_table table {
+  border-collapse: collapse;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.display_expenses_table tr {
+  border-bottom: 1pt solid white;
+}
+
+.display_expenses_table tr:nth-child(even) {
+  background-color: rgba(58, 56, 56, 0.4);
+}
+
+.display_expenses_table tr:nth-child(odd) {
+  background-color: rgba(133, 133, 133, 0.4);
+}
+
+.expenses_delete_button {
+  cursor: pointer;
 }

@@ -49,7 +49,7 @@ const AddExpense = () => {
   };
 
   return (
-    <div>
+    <div className="addExp">
       <form onSubmit={handleAddExpense}>
         <div className={styles.expense_main_container}>
           <p className={styles.expense_info}>Dodaj wydatek: </p>
