@@ -6,12 +6,20 @@ const Money = (props) => {
   const money = props.money;
   const [error, setError] = useState("");
   const [addMoney, setAddMoney] = useState({ money: "" });
+  const [moneyToAdd, setMoneyToAdd] = useState({ money: "" });
 
   const handleChange = ({ currentTarget: input }) => {
+    setMoneyToAdd({
+      ...moneyToAdd,
+      money: parseFloat(addMoney.money) + parseFloat(money),
+    });
+
     setAddMoney({
       ...addMoney,
       [input.name]: input.value,
     });
+
+    console.log("do dodania: " + moneyToAdd.money);
   };
 
   const handleUpdateMoney = async (e) => {
@@ -24,7 +32,7 @@ const Money = (props) => {
         "x-access-token": token,
       };
       const url = "http://localhost:8080/api/info/updateMoney";
-      const { message: res } = await axios.post(url, addMoney, {
+      const { message: res } = await axios.post(url, moneyToAdd, {
         headers: headers,
       });
       console.log(res.message);

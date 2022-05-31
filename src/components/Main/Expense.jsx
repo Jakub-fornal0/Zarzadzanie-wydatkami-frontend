@@ -25,6 +25,7 @@ const Expense = (props) => {
         const { message: res } = await axios.post(url, idToDelete, {
           headers: headers,
         });
+        setMessage(res.message);
         console.log(res.message);
       } catch (error) {
         if (
