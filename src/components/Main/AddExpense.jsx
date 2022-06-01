@@ -103,8 +103,6 @@ const AddExpense = (props) => {
             <option value="Rachunki">Rachunki</option>
             <option value="Odzież">Odzież</option>
           </select>
-        </div>
-        <div className={styles.add_expense}>
           <button
             type="submit"
             className={styles.add_expense_btn}

@@ -34,7 +34,7 @@
   border: none;
   outline: none;
   padding: 12px 0;
-  background-color: white;
+  background-color: rgb(201, 58, 58);
   border-radius: 20px;
   width: 120px;
   font-weight: bold;
@@ -45,7 +45,7 @@
 }
 
 .logout_btn:hover {
-  background-color: #c6c6c6;
+  background-color: #a37070;
 }
 
 .main {
@@ -83,13 +83,13 @@
 .expense_info,
 .display_expenses_info {
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   padding-right: 20px;
 }
 
 .amount {
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   padding-right: 20px;
   font-weight: bold;
 }
@@ -106,56 +106,60 @@
   outline: none;
   border: none;
   width: 12vw;
-  padding: 15px;
+  padding: 11px;
   border-radius: 10px;
   background-color: #edf5f3;
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .input_select {
   outline: none;
   border: none;
   width: 12vw;
-  padding: 15px;
+  padding: 11px;
   border-radius: 10px;
   background-color: #edf5f3;
   margin: 5px 5px 10px;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .add_money_btn {
   border: none;
   outline: none;
-  padding: 12px 0;
-  background-color: white;
-  border-radius: 20px;
+  padding: 11px;
+  background-color: rgb(196, 212, 76);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: 120px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 10px;
   cursor: pointer;
   margin-left: 20px;
   transition: 1s ease-in-out;
 }
 
 .add_money_btn:hover {
-  background-color: #c6c6c6;
+  background-color: #c3c982;
 }
 .add_expense_btn {
   border: none;
   outline: none;
-  padding: 12px 0;
-  background-color: white;
-  border-radius: 20px;
+  padding: 11px;
+  margin-bottom: 2px;
+  background-color: rgb(196, 212, 76);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: 120px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 10px;
   cursor: pointer;
+  margin-left: 20px;
   transition: 1s ease-in-out;
 }
 
 .add_expense_btn:hover {
-  background-color: #c6c6c6;
+  background-color: #c3c982;
 }
 
 .add_expense_input input {
