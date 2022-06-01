@@ -9,16 +9,17 @@ const Money = (props) => {
   const [moneyToAdd, setMoneyToAdd] = useState({ money: "" });
 
   const handleChange = ({ currentTarget: input }) => {
-    setMoneyToAdd({
-      ...moneyToAdd,
-      money: parseFloat(addMoney.money) + parseFloat(money),
-    });
-
     setAddMoney({
       ...addMoney,
       [input.name]: input.value,
     });
+  };
 
+  const handleUpdateMoneyToAdd = () => {
+    setMoneyToAdd({
+      ...moneyToAdd,
+      money: parseFloat(addMoney.money) + parseFloat(money),
+    });
     console.log("do dodania: " + moneyToAdd.money);
   };
 
@@ -66,8 +67,12 @@ const Money = (props) => {
           required
           className={styles.input}
         />
-        <button className={styles.add_money_btn} onClick={handleUpdateMoney}>
-          Zmień
+        <button
+          className={styles.add_money_btn}
+          onClick={handleUpdateMoney}
+          onMouseEnter={handleUpdateMoneyToAdd}
+        >
+          Dodaj
         </button>
       </div>
     </div>

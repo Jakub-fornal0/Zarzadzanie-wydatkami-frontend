@@ -2,17 +2,28 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 
-const AddExpense = () => {
+const AddExpense = (props) => {
+  const money = props.money;
   const [error, setError] = useState("");
   const [data, setData] = useState({
     name: "",
     expense: "",
     date: "",
     category: "Żywność",
+    updateMoney: "",
   });
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleUpdateMoneyToAdd = () => {
+    setData({
+      ...data,
+      updateMoney: parseFloat(money) - parseFloat(data.expense),
+    });
+
+    console.log(data.updateMoney);
   };
 
   const handleAddExpense = async (e) => {
@@ -21,11 +32,10 @@ const AddExpense = () => {
       expense: "",
       date: "",
       category: "Żywność",
+      updateMoney: "",
     });
 
     e.preventDefault();
-    console.log("dane w funkcji");
-    console.log(data);
     try {
       const url = "http://localhost:8080/api/info/addExpense";
       const token = localStorage.getItem("token");
@@ -97,7 +107,11 @@ const AddExpense = () => {
           </select>
         </div>
         <div className={styles.add_expense}>
-          <button type="submit" className={styles.add_expense_btn}>
+          <button
+            type="submit"
+            className={styles.add_expense_btn}
+            onMouseEnter={handleUpdateMoneyToAdd}
+          >
             Dodaj
           </button>
         </div>

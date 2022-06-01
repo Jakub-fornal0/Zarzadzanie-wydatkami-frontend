@@ -61,7 +61,7 @@ const Main = () => {
         <div className={styles.main}>
           <div className={styles.money_and_add_expenses}>
             <Money money={user.money}></Money>
-            <AddExpense></AddExpense>
+            <AddExpense money={user.money}></AddExpense>
           </div>
           <div className={styles.display_expenses}>
             <Expenses></Expenses>
