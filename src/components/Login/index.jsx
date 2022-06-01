@@ -66,7 +66,7 @@ const Login = () => {
         <div className={styles.right}>
           <h1>Kontroluj swoje wydatki</h1>
           <p>
-            Dodaj kiedy i ile wydałeś, wybierz kategorię oraz odpcjonalnie dodaj
+            Dodaj kiedy i ile wydałeś, wybierz kategorię oraz opcjonalnie dodaj
             opis. Strona będzie konrolowała twój budżet. Dodatkowo możesz
             sprawdzić statystyki dotyczące danej kategorii lub wydatków w
             wybranym okresie.

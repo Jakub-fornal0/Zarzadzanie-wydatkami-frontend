@@ -73,7 +73,8 @@
 
 .money_main_container,
 .expense_main_container,
-.display_expenses_main_container {
+.display_expenses_main_container,
+.display_stats_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,9 +82,11 @@
 
 .money_info,
 .expense_info,
-.display_expenses_info {
+.display_expenses_info,
+.display_stats_info {
   color: #fff;
   font-size: 15px;
+  font-weight: bold;
   padding-right: 20px;
 }
 
@@ -172,7 +175,8 @@
   /*grid-template-columns: repeat(2, 1fr);*/
 }
 
-.display_expenses_main_container {
+.display_expenses_main_container,
+.display_stats_container {
   margin-top: 20px;
 }
 .display_expenses_table {
@@ -214,4 +218,51 @@ td {
 
 .table_tr:hover {
   background-color: rgba(137, 152, 82, 0.4);
+}
+
+.expenses_main_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.select_stat {
+  color: #fff;
+  font-size: 15px;
+  padding-right: 20px;
+}
+
+.input_date {
+  outline: none;
+  border: none;
+  width: 12vw;
+  padding: 11px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 5px 5px;
+  font-size: 10px;
+}
+
+.white {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+.check_btn {
+  border: none;
+  outline: none;
+  padding: 11px;
+  background-color: rgb(76, 187, 225);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 120px;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: 1s ease-in-out;
+}
+
+.check_btn:hover {
+  background-color: rgb(148, 190, 204);
 }
