@@ -3,9 +3,10 @@ import axios from "axios";
 import styles from "./styles.module.css";
 import DisplayExpenses from "./DisplayExpenses";
 
-const Expenses = () => {
+const Expenses = (props) => {
   const [error, setError] = useState("");
   const [expenses, setExpenses] = useState([]);
+  const money = props.money;
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -45,7 +46,7 @@ const Expenses = () => {
         <p className={styles.display_expenses_info}> Twoje wydatki: </p>
       </div>
       <div className={styles.display_expense}>
-        <DisplayExpenses expenses={expenses}></DisplayExpenses>
+        <DisplayExpenses expenses={expenses} money={money}></DisplayExpenses>
       </div>
     </div>
   );

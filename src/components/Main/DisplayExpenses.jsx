@@ -3,6 +3,7 @@ import Expense from "./Expense";
 
 const DisplayExpenses = (props) => {
   const expenses = props.expenses;
+  const money = props.money;
 
   const sorted_expenses = expenses.sort((a, b) => {
     var dateA = new Date(a.date);
@@ -24,7 +25,12 @@ const DisplayExpenses = (props) => {
         </thead>
         <tbody>
           {sorted_expenses.map((expense) => (
-            <Expense key={expense._id} value={expense._id} expense={expense} />
+            <Expense
+              key={expense._id}
+              value={expense._id}
+              expense={expense}
+              money={money}
+            />
           ))}
         </tbody>
       </table>

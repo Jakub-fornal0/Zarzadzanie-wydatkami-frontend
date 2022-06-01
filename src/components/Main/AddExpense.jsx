@@ -22,8 +22,6 @@ const AddExpense = (props) => {
       ...data,
       updateMoney: parseFloat(money) - parseFloat(data.expense),
     });
-
-    console.log(data.updateMoney);
   };
 
   const handleAddExpense = async (e) => {

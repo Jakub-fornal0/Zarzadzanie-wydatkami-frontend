@@ -20,7 +20,6 @@ const Money = (props) => {
       ...moneyToAdd,
       money: parseFloat(addMoney.money) + parseFloat(money),
     });
-    console.log("do dodania: " + moneyToAdd.money);
   };
 
   const handleUpdateMoney = async (e) => {

@@ -5,12 +5,17 @@ import styles from "./styles.module.css";
 
 const Expense = (props) => {
   const expense = props.expense;
+  const money = props.money;
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [idToDelete, setIdToDelete] = useState({ id: "" });
+  const [idToDelete, setIdToDelete] = useState({ id: "", money: "" });
 
   const handleGetId = () => {
-    setIdToDelete({ ...idToDelete, id: expense._id });
+    setIdToDelete({
+      ...idToDelete,
+      id: expense._id,
+      money: parseFloat(expense.expense) + parseFloat(money),
+    });
   };
 
   const handleDeleteExpense = async (e) => {
@@ -40,7 +45,7 @@ const Expense = (props) => {
   };
 
   return (
-    <tr className={styles.table_tr}>
+    <tr className={styles.table_tr} onMouseEnter={handleGetId}>
       <td>{expense.name}</td>
       <td>{expense.expense}</td>
       <td>{expense.date}</td>
