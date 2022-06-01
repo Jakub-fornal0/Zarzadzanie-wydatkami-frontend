@@ -40,7 +40,7 @@ const Expense = (props) => {
   };
 
   return (
-    <tr>
+    <tr className={styles.table_tr}>
       <td>{expense.name}</td>
       <td>{expense.expense}</td>
       <td>{expense.date}</td>

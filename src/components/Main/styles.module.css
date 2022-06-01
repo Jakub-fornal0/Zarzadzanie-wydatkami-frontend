@@ -192,14 +192,22 @@ td {
   border-bottom: 1pt solid white;
 }
 
-.display_expenses_table tr:nth-child(even) {
+.table_tr:nth-child(even) {
   background-color: rgba(58, 56, 56, 0.4);
 }
 
-.display_expenses_table tr:nth-child(odd) {
+.table_tr:nth-child(odd) {
   background-color: rgba(133, 133, 133, 0.4);
+}
+
+.main_tr {
+  background-color: rgba(13, 13, 13, 0.4);
 }
 
 .expenses_delete_button {
   cursor: pointer;
+}
+
+.table_tr:hover {
+  background-color: rgba(137, 152, 82, 0.4);
 }
