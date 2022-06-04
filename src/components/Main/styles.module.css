@@ -67,7 +67,7 @@
 .money_and_add_expenses {
   display: grid;
   grid-template-areas: "money addExp";
-  gap: 15px;
+  gap: 40px;
   /*grid-template-columns: repeat(2, 1fr);*/
 }
 
@@ -220,9 +220,18 @@ td {
   background-color: rgba(137, 152, 82, 0.4);
 }
 
+.user_expenses {
+  grid-area: user_expenses;
+}
+
+.stats {
+  grid-area: stats;
+}
+
 .expenses_main_container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "user_expenses stats stats";
+  gap: 40px;
 }
 
 .select_stat {
@@ -242,13 +251,14 @@ td {
   font-size: 10px;
 }
 
-.white {
+.display_stats_container {
   color: #fff;
   font-size: 12px;
   margin-bottom: 30px;
 }
 
-.check_btn {
+.check_btn,
+.reset_btn {
   border: none;
   outline: none;
   padding: 11px;
@@ -265,4 +275,17 @@ td {
 
 .check_btn:hover {
   background-color: rgb(148, 190, 204);
+}
+
+.reset_btn {
+  background-color: rgb(201, 58, 58);
+}
+
+.reset_btn:hover {
+  background-color: #a37070;
+}
+
+.summary_main_container {
+  height: 40vh;
+  background-color: #a37070;
 }
