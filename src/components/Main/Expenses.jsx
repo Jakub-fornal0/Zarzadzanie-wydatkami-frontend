@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 import DisplayExpenses from "./DisplayExpenses";
-import Summary from "./Summary";
 
 const Expenses = (props) => {
   const [error, setError] = useState("");
@@ -13,6 +12,7 @@ const Expenses = (props) => {
     end_date: "",
     category: "Wszystkie",
   });
+
   const [display, setDisplay] = useState(false);
   const money = props.money;
 
@@ -52,6 +52,24 @@ const Expenses = (props) => {
       );
     });
     setExpensesFromDate(fromDate);
+    console.log(expensesFromDate);
+  };
+
+  const handleUpdateExpenses = () => {
+    const fromDate = expenses.filter((expense) => {
+      var mainDate = new Date(expense.date);
+      var startDate = new Date(searchDate.start_date);
+      var endDate = new Date(searchDate.end_date);
+      if (searchDate.category === "Wszystkie")
+        return mainDate >= startDate && mainDate <= endDate;
+      return (
+        mainDate >= startDate &&
+        mainDate <= endDate &&
+        expense.category === searchDate.category
+      );
+    });
+    setExpensesFromDate(fromDate);
+    console.log(expensesFromDate);
   };
 
   useEffect(() => {
@@ -107,13 +125,15 @@ const Expenses = (props) => {
         </div>
       </div>
       <div className={styles.stats}>
-        <div>
-          <div className={styles.display_stats_container}>
-            <form onSubmit={handleChangeExpenses}>
+        <div className={styles.display_stats_container}>
+          <form onSubmit={handleChangeExpenses}>
+            <div className={styles.center}>
               <p className={styles.select_stat}>
                 Wyświetl dane z wybranego zakresu:
               </p>
-              Od
+            </div>
+            <div>
+              <p className={styles.center}>Data początkowa</p>
               <input
                 type="date"
                 placeholder="Wprowadz datę"
@@ -121,9 +141,11 @@ const Expenses = (props) => {
                 name="start_date"
                 onChange={handleChange}
                 required
-                className={styles.input_date}
+                className={styles.input_date_stats}
               />
-              do
+            </div>
+            <div>
+              <p className={styles.center}>Data końcowa</p>
               <input
                 type="date"
                 placeholder="Wprowadz datę"
@@ -131,10 +153,13 @@ const Expenses = (props) => {
                 name="end_date"
                 onChange={handleChange}
                 required
-                className={styles.input_date}
+                className={styles.input_date_stats}
               />
+            </div>
+            <div>
+              <p className={styles.center}>Kategoria</p>
               <select
-                className={styles.input_select}
+                className={styles.input_select_stats}
                 value={searchDate.category}
                 name="category"
                 onChange={handleChange}
@@ -145,16 +170,21 @@ const Expenses = (props) => {
                 <option value="Rachunki">Rachunki</option>
                 <option value="Odzież">Odzież</option>
               </select>
-              <button type="submit" className={styles.check_btn}>
+            </div>
+            <div className={styles.center}>
+              <button
+                type="submit"
+                className={styles.check_btn}
+                onMouseEnter={handleUpdateExpenses}
+              >
                 Wyświetl
               </button>
               <button className={styles.reset_btn} onClick={handleGetReset}>
                 Reset
               </button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        <div>{display === false ? <p></p> : <Summary></Summary>}</div>
       </div>
     </div>
   );

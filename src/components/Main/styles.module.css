@@ -74,7 +74,8 @@
 .money_main_container,
 .expense_main_container,
 .display_expenses_main_container,
-.display_stats_container {
+.display_stats_container,
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,12 +83,21 @@
 
 .money_info,
 .expense_info,
-.display_expenses_info,
 .display_stats_info {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
   padding-right: 20px;
+}
+.display_expenses_info {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.display_expenses_subinfo {
+  color: #fff;
+  font-size: 15px;
 }
 
 .amount {
@@ -175,19 +185,30 @@
   /*grid-template-columns: repeat(2, 1fr);*/
 }
 
-.display_expenses_main_container,
-.display_stats_container {
-  margin-top: 20px;
+.display_expenses_main_container {
+  margin-top: 30px;
 }
+.display_stats_container {
+  margin-top: 60px;
+}
+
 .display_expenses_table {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.display_expenses_table table {
+  width: 90%;
+}
+
 .display_expenses_table th,
 td {
   padding: 15px;
+}
+
+.display_expenses_table th {
+  text-align: left;
 }
 
 .display_expenses_table table {
@@ -230,14 +251,13 @@ td {
 
 .expenses_main_container {
   display: grid;
-  grid-template-areas: "user_expenses stats stats";
+  grid-template-areas: "user_expenses stats";
   gap: 40px;
 }
 
 .select_stat {
   color: #fff;
   font-size: 15px;
-  padding-right: 20px;
 }
 
 .input_date {
@@ -288,4 +308,26 @@ td {
 .summary_main_container {
   height: 40vh;
   background-color: #a37070;
+}
+
+.input_select_stats {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 5px 5px 10px;
+  font-size: 10px;
+}
+
+.input_date_stats {
+  outline: none;
+  border: none;
+  width: 92%;
+  padding: 11px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 5px 5px 10px;
+  font-size: 10px;
 }

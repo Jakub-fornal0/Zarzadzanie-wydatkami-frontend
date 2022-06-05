@@ -13,27 +13,33 @@ const DisplayExpenses = (props) => {
 
   return (
     <div className={styles.display_expenses_table}>
-      <table>
-        <thead>
-          <tr className={styles.main_tr}>
-            <th>Nazwa</th>
-            <th>Koszt</th>
-            <th>Data</th>
-            <th>Kategoria</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {sorted_expenses.map((expense) => (
-            <Expense
-              key={expense._id}
-              value={expense._id}
-              expense={expense}
-              money={money}
-            />
-          ))}
-        </tbody>
-      </table>
+      {expenses.length > 0 ? (
+        <table>
+          <thead>
+            <tr className={styles.main_tr}>
+              <th>Nazwa</th>
+              <th>Koszt</th>
+              <th>Data</th>
+              <th>Kategoria</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted_expenses.map((expense) => (
+              <Expense
+                key={expense._id}
+                value={expense._id}
+                expense={expense}
+                money={money}
+              />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className={styles.display_expenses_subinfo}>
+          Nie posiadasz wydatków.
+        </p>
+      )}
     </div>
   );
 };
