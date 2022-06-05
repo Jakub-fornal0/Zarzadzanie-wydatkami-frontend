@@ -65,10 +65,7 @@
 }
 
 .money_and_add_expenses {
-  display: grid;
-  grid-template-areas: "money addExp";
-  gap: 40px;
-  /*grid-template-columns: repeat(2, 1fr);*/
+  padding-top: 20px;
 }
 
 .money_main_container,
@@ -189,7 +186,7 @@
   margin-top: 30px;
 }
 .display_stats_container {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .display_expenses_table {
@@ -310,21 +307,11 @@ td {
   background-color: #a37070;
 }
 
-.input_select_stats {
-  outline: none;
-  border: none;
-  width: 100%;
-  padding: 11px;
-  border-radius: 10px;
-  background-color: #edf5f3;
-  margin: 5px 5px 10px;
-  font-size: 10px;
-}
-
+.input_select_stats,
 .input_date_stats {
   outline: none;
   border: none;
-  width: 92%;
+  width: 100%;
   padding: 11px;
   border-radius: 10px;
   background-color: #edf5f3;

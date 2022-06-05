@@ -4,6 +4,8 @@ import axios from "axios";
 import Money from "./Money";
 import AddExpense from "./AddExpense";
 import Expenses from "./Expenses";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Main = () => {
   const [error, setError] = useState("");
@@ -58,14 +60,21 @@ const Main = () => {
             Wyloguj się
           </button>
         </nav>
+
         <div className={styles.main}>
-          <div className={styles.money_and_add_expenses}>
-            <Money money={user.money}></Money>
-            <AddExpense money={user.money}></AddExpense>
-          </div>
-          <div className={styles.display_expenses}>
-            <Expenses money={user.money}></Expenses>
-          </div>
+          <Container>
+            <Row className={styles.money_and_add_expenses}>
+              <Col>
+                <Money money={user.money}></Money>
+              </Col>
+              <Col>
+                <AddExpense money={user.money}></AddExpense>
+              </Col>
+            </Row>
+            <div className={styles.display_expenses}>
+              <Expenses money={user.money}></Expenses>
+            </div>
+          </Container>
         </div>
       </div>
     </div>
