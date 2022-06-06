@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -35,51 +37,53 @@ const Login = () => {
 
   return (
     <div className={styles.login_container}>
-      <div className={styles.login_form_container}>
-        <div className={styles.left}>
-          <form className={styles.form_container} onSubmit={handleSubmit}>
-            <h1>Zaloguj się</h1>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-              value={data.email}
-              required
-              className={styles.input}
-            />
-            <input
-              type="password"
-              placeholder="Hasło"
-              name="password"
-              onChange={handleChange}
-              value={data.password}
-              required
-              className={styles.input}
-            />
-            {error && <div className={styles.error_msg}>{error}</div>}
-            <button type="submit" className={styles.login_btn}>
-              Zaloguj się
-            </button>
-          </form>
-        </div>
-        <div className={styles.right}>
-          <h1>Kontroluj swoje wydatki</h1>
-          <p>
-            Dodaj kiedy i ile wydałeś, wybierz kategorię oraz opcjonalnie dodaj
-            opis. Strona będzie konrolowała twój budżet. Dodatkowo możesz
-            sprawdzić statystyki dotyczące danej kategorii lub wydatków w
-            wybranym okresie.
-          </p>
+      <Container className={styles.login_form_container}>
+        <Row xl={1} lg={1} md={2} sm={2} xs={2}>
+          <Col className={styles.left} xl={6} lg={6} md={12} sm={12} xs={12}>
+            <form className={styles.form_container} onSubmit={handleSubmit}>
+              <h1>Zaloguj się</h1>
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={handleChange}
+                value={data.email}
+                required
+                className={styles.input}
+              />
+              <input
+                type="password"
+                placeholder="Hasło"
+                name="password"
+                onChange={handleChange}
+                value={data.password}
+                required
+                className={styles.input}
+              />
+              {error && <div className={styles.error_msg}>{error}</div>}
+              <button type="submit" className={styles.login_btn}>
+                Zaloguj się
+              </button>
+            </form>
+          </Col>
+          <Col className={styles.right} xl={6} lg={6} md={12} sm={12} xs={12}>
+            <h1>Kontroluj swoje wydatki</h1>
+            <p>
+              Dodaj kiedy i ile wydałeś, wybierz kategorię oraz opcjonalnie
+              dodaj opis. Strona będzie konrolowała twój budżet. Dodatkowo
+              możesz sprawdzić statystyki dotyczące danej kategorii lub wydatków
+              w wybranym okresie.
+            </p>
 
-          <h2>Nie masz konta? Zarejestruj się!</h2>
-          <Link to="/signup">
-            <button type="button" className={styles.register_btn}>
-              Rejestracja
-            </button>
-          </Link>
-        </div>
-      </div>
+            <h2>Nie masz konta? Zarejestruj się!</h2>
+            <Link to="/signup">
+              <button type="button" className={styles.register_btn}>
+                Rejestracja
+              </button>
+            </Link>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
