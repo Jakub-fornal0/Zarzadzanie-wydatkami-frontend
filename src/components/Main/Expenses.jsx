@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 import DisplayExpenses from "./DisplayExpenses";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Expenses = (props) => {
   const [error, setError] = useState("");
@@ -106,86 +108,97 @@ const Expenses = (props) => {
 
   return (
     <div className={styles.expenses_main_container}>
-      <div className={styles.user_expenses}>
-        <div className={styles.display_expenses_main_container}>
-          <p className={styles.display_expenses_info}> Twoje wydatki: </p>
-        </div>
-        <div className={styles.display_expense}>
-          {display === false ? (
-            <DisplayExpenses
-              expenses={expenses}
-              money={money}
-            ></DisplayExpenses>
-          ) : (
-            <DisplayExpenses
-              expenses={expensesFromDate}
-              money={money}
-            ></DisplayExpenses>
-          )}
-        </div>
-      </div>
-      <div className={styles.stats}>
-        <div className={styles.display_stats_container}>
-          <form onSubmit={handleChangeExpenses}>
-            <div className={styles.center}>
-              <p className={styles.select_stat}>
-                Wyświetl dane z wybranego zakresu:
-              </p>
+      <Container>
+        <Row xl={2} lg={2} md={1} sm={1} xs={1}>
+          <Col xl={8} lg={8} md={12} sm={12} xs={12}>
+            <div className={styles.user_expenses}>
+              <div className={styles.display_expenses_main_container}>
+                <p className={styles.display_expenses_info}> Twoje wydatki: </p>
+              </div>
+              <div className={styles.display_expense}>
+                {display === false ? (
+                  <DisplayExpenses
+                    expenses={expenses}
+                    money={money}
+                  ></DisplayExpenses>
+                ) : (
+                  <DisplayExpenses
+                    expenses={expensesFromDate}
+                    money={money}
+                  ></DisplayExpenses>
+                )}
+              </div>
             </div>
-            <div>
-              <p className={styles.center}>Data początkowa</p>
-              <input
-                type="date"
-                placeholder="Wprowadz datę"
-                value={searchDate.start_date}
-                name="start_date"
-                onChange={handleChange}
-                required
-                className={styles.input_date_stats}
-              />
+          </Col>
+          <Col xl={4} lg={4} md={12} sm={12} xs={12}>
+            <div className={styles.stats}>
+              <div className={styles.display_stats_container}>
+                <form onSubmit={handleChangeExpenses}>
+                  <div className={styles.center}>
+                    <p className={styles.select_stat}>
+                      Wyświetl dane z wybranego zakresu:
+                    </p>
+                  </div>
+                  <div>
+                    <p className={styles.center}>Data początkowa</p>
+                    <input
+                      type="date"
+                      placeholder="Wprowadz datę"
+                      value={searchDate.start_date}
+                      name="start_date"
+                      onChange={handleChange}
+                      required
+                      className={styles.input_date_stats}
+                    />
+                  </div>
+                  <div>
+                    <p className={styles.center}>Data końcowa</p>
+                    <input
+                      type="date"
+                      placeholder="Wprowadz datę"
+                      value={searchDate.end_date}
+                      name="end_date"
+                      onChange={handleChange}
+                      required
+                      className={styles.input_date_stats}
+                    />
+                  </div>
+                  <div>
+                    <p className={styles.center}>Kategoria</p>
+                    <select
+                      className={styles.input_select_stats}
+                      value={searchDate.category}
+                      name="category"
+                      onChange={handleChange}
+                    >
+                      <option value="Wszystkie">Wszystkie</option>
+                      <option value="Żywność">Żywność</option>
+                      <option value="Rozrywka">Rozrywka</option>
+                      <option value="Rachunki">Rachunki</option>
+                      <option value="Odzież">Odzież</option>
+                    </select>
+                  </div>
+                  <div className={styles.center}>
+                    <button
+                      type="submit"
+                      className={styles.check_btn}
+                      onMouseEnter={handleUpdateExpenses}
+                    >
+                      Wyświetl
+                    </button>
+                    <button
+                      className={styles.reset_btn}
+                      onClick={handleGetReset}
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div>
-              <p className={styles.center}>Data końcowa</p>
-              <input
-                type="date"
-                placeholder="Wprowadz datę"
-                value={searchDate.end_date}
-                name="end_date"
-                onChange={handleChange}
-                required
-                className={styles.input_date_stats}
-              />
-            </div>
-            <div>
-              <p className={styles.center}>Kategoria</p>
-              <select
-                className={styles.input_select_stats}
-                value={searchDate.category}
-                name="category"
-                onChange={handleChange}
-              >
-                <option value="Wszystkie">Wszystkie</option>
-                <option value="Żywność">Żywność</option>
-                <option value="Rozrywka">Rozrywka</option>
-                <option value="Rachunki">Rachunki</option>
-                <option value="Odzież">Odzież</option>
-              </select>
-            </div>
-            <div className={styles.center}>
-              <button
-                type="submit"
-                className={styles.check_btn}
-                onMouseEnter={handleUpdateExpenses}
-              >
-                Wyświetl
-              </button>
-              <button className={styles.reset_btn} onClick={handleGetReset}>
-                Reset
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

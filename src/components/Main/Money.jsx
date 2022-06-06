@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Money = (props) => {
   const money = props.money;
@@ -48,33 +50,37 @@ const Money = (props) => {
   };
 
   return (
-    <div className="money">
+    <Container>
       <div className={styles.money_main_container}>
         <p className={styles.money_info}>Dostępne środki: </p>
         <p className={styles.amount}>{money}</p>
         <p className={styles.money_info}>zł </p>
       </div>
-      <div className={styles.add_money}>
-        <input
-          type="number"
-          step="0.01"
-          min="0"
-          placeholder="Wprowadz nową wartość"
-          name="money"
-          onChange={handleChange}
-          value={addMoney.money}
-          required
-          className={styles.input}
-        />
-        <button
-          className={styles.add_money_btn}
-          onClick={handleUpdateMoney}
-          onMouseEnter={handleUpdateMoneyToAdd}
-        >
-          Dodaj
-        </button>
-      </div>
-    </div>
+      <Row xl={1} lg={1} md={2} sm={2} xs={2}>
+        <Col xl={8} lg={8} md={12} sm={12} xs={12} className={styles.center}>
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            placeholder="Wprowadz nową wartość"
+            name="money"
+            onChange={handleChange}
+            value={addMoney.money}
+            required
+            className={styles.input}
+          />
+        </Col>
+        <Col xl={4} lg={4} md={12} sm={12} xs={12} className={styles.center}>
+          <button
+            className={styles.add_money_btn}
+            onClick={handleUpdateMoney}
+            onMouseEnter={handleUpdateMoneyToAdd}
+          >
+            Dodaj
+          </button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

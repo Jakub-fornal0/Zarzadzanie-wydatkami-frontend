@@ -63,17 +63,24 @@ const Main = () => {
 
         <div className={styles.main}>
           <Container>
-            <Row className={styles.money_and_add_expenses}>
-              <Col>
+            <Row
+              xl={1}
+              lg={1}
+              md={2}
+              sm={2}
+              xs={2}
+              className={styles.money_and_add_expenses}
+            >
+              <Col xl={4} lg={4} md={12} sm={12} xs={12}>
                 <Money money={user.money}></Money>
               </Col>
-              <Col>
+              <Col xl={8} lg={8} md={12} sm={12} xs={12}>
                 <AddExpense money={user.money}></AddExpense>
               </Col>
             </Row>
-            <div className={styles.display_expenses}>
+            <Row className={styles.display_expenses}>
               <Expenses money={user.money}></Expenses>
-            </div>
+            </Row>
           </Container>
         </div>
       </div>
