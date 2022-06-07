@@ -50,37 +50,39 @@ const Money = (props) => {
   };
 
   return (
-    <Container>
-      <div className={styles.money_main_container}>
-        <p className={styles.money_info}>Dostępne środki: </p>
-        <p className={styles.amount}>{money}</p>
-        <p className={styles.money_info}>zł </p>
-      </div>
-      <Row xl={1} lg={1} md={2} sm={2} xs={2}>
-        <Col xl={8} lg={8} md={12} sm={12} xs={12} className={styles.center}>
-          <input
-            type="number"
-            step="0.01"
-            min="0"
-            placeholder="Wprowadz nową wartość"
-            name="money"
-            onChange={handleChange}
-            value={addMoney.money}
-            required
-            className={styles.input}
-          />
-        </Col>
-        <Col xl={4} lg={4} md={12} sm={12} xs={12} className={styles.center}>
-          <button
-            className={styles.add_money_btn}
-            onClick={handleUpdateMoney}
-            onMouseEnter={handleUpdateMoneyToAdd}
-          >
-            Dodaj
-          </button>
-        </Col>
-      </Row>
-    </Container>
+    <form onSubmit={handleUpdateMoney}>
+      <Container>
+        <div className={styles.money_main_container}>
+          <p className={styles.money_info}>Dostępne środki: </p>
+          <p className={styles.amount}>{money}</p>
+          <p className={styles.money_info}>zł </p>
+        </div>
+        <Row xl={1} lg={1} md={2} sm={2} xs={2}>
+          <Col xl={8} lg={8} md={12} sm={12} xs={12} className={styles.center}>
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              placeholder="Wprowadz nową wartość"
+              name="money"
+              onChange={handleChange}
+              value={addMoney.money}
+              required
+              className={styles.input}
+            />
+          </Col>
+          <Col xl={4} lg={4} md={12} sm={12} xs={12} className={styles.center}>
+            <button
+              type="submit"
+              className={styles.add_money_btn}
+              onMouseEnter={handleUpdateMoneyToAdd}
+            >
+              Dodaj
+            </button>
+          </Col>
+        </Row>
+      </Container>
+    </form>
   );
 };
 

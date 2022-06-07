@@ -71,7 +71,6 @@ const Expenses = (props) => {
       );
     });
     setExpensesFromDate(fromDate);
-    console.log(expensesFromDate);
   };
 
   useEffect(() => {
